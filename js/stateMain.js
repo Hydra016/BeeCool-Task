@@ -9,6 +9,7 @@ var StateMain = {
   preload: function () {
     game.load.image("background", "images/background.png");
     game.load.image("bars", "images/strip_new.png");
+    //loaded a new blurred strip
     game.load.image("bars-blur", "images/strip-blur.png");
     game.load.image("btnSpin", "images/btnSpin.png");
   },
@@ -72,9 +73,10 @@ var StateMain = {
     isSpinning = true;
 
     game.add
-      .tween(this.barGroup)
+      .tween(this.barGroup) //added tween in the opposite direction
       .to({ y: this.barGroup.y + 30 }, 500, Phaser.Easing.Cubic.InOut, true)
       .onComplete.addOnce(function () {
+        //making it simple rather than adding multiple cases
         var symbolArray = [1, 2, 3, 4, 5, 6, 17];
 
         var s1 = getRandomArrayElement(symbolArray);
@@ -107,8 +109,9 @@ var StateMain = {
           }
         }
 
+        //if wild comes then extra 5 points
         if (
-          (s1 == 17 && s2 == s2) ||
+          (s1 == 17 && s3 == s2) ||
           (s2 == 17 && s1 == s3) ||
           (s3 == 17 && s1 == s2)
         ) {
