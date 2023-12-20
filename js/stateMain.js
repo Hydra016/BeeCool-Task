@@ -3,14 +3,13 @@ var credits_text;
 var win_text;
 var win = 0;
 
-var blurredBarImage = "images/strip-blur.png";
 var isSpinning = false;
 
 var StateMain = {
   preload: function () {
     game.load.image("background", "images/background.png");
     game.load.image("bars", "images/strip_new.png");
-    game.load.image("bars-blur", blurredBarImage);
+    game.load.image("bars-blur", "images/strip-blur.png");
     game.load.image("btnSpin", "images/btnSpin.png");
   },
   create: function () {
